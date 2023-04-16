@@ -12,7 +12,8 @@ import { useColorScheme } from 'react-native'
 
 export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>) {
   const scheme = useColorScheme()
-  const defaultTheme = isServerSide ? undefined : scheme === 'dark' ? 'dark' : 'light'
+  const defaultTheme = scheme === 'dark' ? 'dark' : 'light'
+  // const defaultTheme = 'dark'
 
   console.log('isServerSide', isServerSide)
   console.log('scheme', scheme)
