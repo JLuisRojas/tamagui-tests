@@ -1,12 +1,12 @@
-import { Button, H1, Sheet, XStack, YStack, useToast } from '@my/ui'
+import { Paragraph, Button, H1, Sheet, XStack, YStack, Square, useToastController } from '@my/ui'
 import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
 import React, { useState } from 'react'
 import { useLink } from 'solito/link'
 
 export function HomeScreen() {
-  // const linkProps = useLink({
-  //   href: '/user/nate',
-  // })
+  const linkProps = useLink({
+    href: '/user/nate',
+  })
 
   return (
     <YStack f={1} jc="center" ai="center" p="$4" space>
@@ -15,17 +15,27 @@ export function HomeScreen() {
       </YStack>
 
       <XStack>
-        <Button
-          animation="lazy"
+        {/* <Button */}
+        {/*   marginLeft="$2" */}
+        {/*   animation="bouncy" */}
+        {/*   hoverStyle={{ */}
+        {/*     scale: 1.1, */}
+        {/*   }} */}
+        {/* > */}
+        {/*   Animated Button */}
+        {/* </Button> */}
+        <Square
+          animation="bouncy"
           hoverStyle={{
             scale: 1.1,
           }}
-          marginRight="$4"
+          padding="$4"
+          backgroundColor="$color5"
+          marginLeft="$3"
+          borderRadius="$4"
         >
-          Animated button
-        </Button>
-
-        <Button>Normal button</Button>
+          <Paragraph>Animated Square</Paragraph>
+        </Square>
       </XStack>
 
       <SheetDemo />
@@ -36,7 +46,8 @@ export function HomeScreen() {
 function SheetDemo() {
   const [open, setOpen] = useState(false)
   const [position, setPosition] = useState(0)
-  const toast = useToast()
+  const toast = useToastController()
+
   return (
     <>
       <Button
